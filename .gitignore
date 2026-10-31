@@ -1,0 +1,10 @@
+.venv/
+.playwright-browsers/
+shots/
+__pycache__/
+*.pyc
+.DS_Store
+.lab/
+node_modules/
+tools/*.log
+tools/.*.log

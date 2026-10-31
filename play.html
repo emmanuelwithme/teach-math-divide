@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>玩一玩｜直式除法闖關</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/board.css">
+<link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="btn small ghost" href="index.html">← 首頁</a>
+    <span class="pill mode" id="modePill">整數 ÷ 整數</span>
+    <span class="level-seg" id="levelSeg">
+      <button data-lv="1">輕鬆</button>
+      <button data-lv="2">一般</button>
+      <button data-lv="3">挑戰</button>
+    </span>
+    <span class="spacer"></span>
+    <a class="btn small" id="learnLink" href="learn.html">📖 學一學</a>
+    <button class="btn small ghost" id="ttsBtn">🗣 朗讀</button>
+    <button class="btn small ghost" id="sfxBtn">🔊</button>
+  </div>
+
+  <div class="card tinted">
+    <div class="progress" id="progress"></div>
+    <div class="problem" id="problem"></div>
+    <div class="story" id="story"><span class="emoji">🍎</span><span id="storyText"></span></div>
+  </div>
+
+  <div class="card" id="moveCard">
+    <h2>🚚 先讓除數變成整數</h2>
+    <div id="moveStage"></div>
+    <div class="btn-row center" id="moveChoices" style="justify-content:center;margin-top:10px"></div>
+    <div class="narrate" id="moveMsg" style="margin-top:10px"></div>
+  </div>
+
+  <div class="cols two">
+    <div class="card">
+      <h2>🧱 分方塊</h2>
+      <div id="stage"></div>
+    </div>
+    <div class="card">
+      <h2>📐 直式</h2>
+      <div class="ld-scroll"><div id="board"></div></div>
+      <div class="phases" id="phases">
+        <span class="phase-chip" data-p="take">① 看</span>
+        <span class="phase-chip" data-p="quotient">② 商</span>
+        <span class="phase-chip" data-p="multiply">③ 乘</span>
+        <span class="phase-chip" data-p="subtract">④ 減・比</span>
+        <span class="phase-chip" data-p="bringdown">⑤ 落下</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="narrate" id="narrate" aria-live="polite"></div>
+    <div class="keypad" id="keypad"></div>
+    <div class="btn-row" style="justify-content:center;margin-top:12px">
+      <button class="btn warn" id="hintBtn">💡 提示（九九表）</button>
+      <button class="btn primary hidden" id="nextStepBtn">⬇ 落下下一位</button>
+      <button class="btn hidden" id="skipBtn">不會，看示範</button>
+      <button class="btn hidden" id="nextQBtn">下一題 ➡</button>
+    </div>
+    <div class="multipy hidden" id="mult"></div>
+    <div class="small muted center" style="margin-top:8px">也可以用鍵盤數字鍵 <kbd>0</kbd>–<kbd>9</kbd> 回答</div>
+  </div>
+
+  <div class="card hidden" id="resultCard">
+    <h2 class="center">🏁 這一輪的成績</h2>
+    <div class="center" id="resultBody"></div>
+    <div class="btn-row" style="justify-content:center;margin-top:12px">
+      <button class="btn primary" id="againBtn">🔁 再玩一輪</button>
+      <button class="btn" id="homeBtn">🏠 回首頁</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <details>
+      <summary>👩‍🏫 老師指定題目</summary>
+      <div class="teacher-panel" style="margin-top:10px">
+        <label>被除數 <input id="inDividend" inputmode="decimal" placeholder="8.4"></label>
+        <label>除數 <input id="inDivisor" inputmode="decimal" placeholder="0.4"></label>
+        <button class="btn small primary" id="goBtn">玩這題</button>
+        <span class="small muted" id="teacherMsg"></span>
+      </div>
+    </details>
+  </div>
+</div>
+<div class="confetti-wrap" id="confetti"></div>
+<script type="module" src="js/play.js"></script>
+</body>
+</html>

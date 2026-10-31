@@ -1,0 +1,12 @@
+{
+  "name": "teach-math-divide",
+  "private": true,
+  "type": "module",
+  "description": "僅供開發使用：讓 node 直接執行 ESM 腳本。網頁本身零相依，不需要 npm install。",
+  "scripts": {
+    "serve": "python3 -m http.server 8137",
+    "test": "node tools/test-engine.mjs",
+    "audit": "python tools/audit.py",
+    "shots": "python tools/shot.py --video"
+  }
+}
